@@ -8,9 +8,9 @@ example data by running the main.py file.
 
 ## Example Data
 File *eg1.ttl* contains RDF data in the turtle format, compliant with the [PROV Ontology](https://www.w3.org/TR/prov-o/)
-. An image of the data is contained in *eg1.png*. The tests run against eg1.ttl all pass or return a result.
+. An image of the data is contained in *eg1.png*. The tests run against *eg1.ttl* all pass or return a result.
 
-File *eg2.ttl* contains data as per the image *eg2.png*. All tests run against eg2.ttl fail or return no result.
+File *eg2.ttl* contains data as per the image *eg2.png*. All tests run against *eg2.ttl* fail or return no result.
 
 
 Nicholas Car <nicholas.car@ga.gov.au>
