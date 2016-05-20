@@ -1,0 +1,70 @@
+#
+# Test data eg1: all tests pass or return a result
+#
+
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix ccby: <https://creativecommons.org/licenses/by/>.
+@prefix drep: <http://promsns.org/ns/drep#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix : <http://example.org/provenance/one#>.
+
+:e1 a prov:Entity;
+  dct:title "Dataset 1"@en;
+  dct:license ccby:4.0;
+  prov:wasAttributedTo <http://orcid.org/0000-0002-8742-7730>
+.
+
+:e2 a prov:Entity;
+  dct:title "Dataset 2"@en;
+  dct:license ccby:3.0;
+  prov:wasAttributedTo <http://orcid.org/0000-0000-0000-0001>
+.
+
+:e3 a prov:Entity;
+  dct:title "Dataset 3"@en;
+  dct:license ccby:3.0;
+  prov:wasAttributedTo <http://orcid.org/0000-0000-0000-0001>
+.
+
+:e4 a prov:Entity;
+  dct:title "Dataset 4"@en;
+  dct:license ccby:4.0;
+  prov:wasAttributedTo <http://orcid.org/0000-0002-8742-7730>;
+  prov:wasDerivedFrom :e1, :e2
+.
+
+:e5 a prov:Entity;
+  dct:title "Dataset 5"@en;
+  dct:license ccby:4.0;
+  prov:wasAttributedTo <http://orcid.org/0000-0002-8742-7730>;
+  prov:wasDerivedFrom :e3, :e4;
+  prov:wasGeneratedBy :a1
+.
+
+<http://orcid.org/0000-0002-8742-7730> a prov:Person;
+  foaf:name "Nicholas Car"@en;
+  drep:dataOwnerRepPoints "5"^^xsd:integer
+.
+
+<http://orcid.org/0000-0000-0000-0001> a prov:Person;
+  foaf:name "Santa Clause"@en;
+  drep:dataOwnerRepPoints "10"^^xsd:integer
+.
+
+<http://orcid.org/0000-0000-0000-0002> a prov:Person;
+  foaf:name "Easter Bunny"@en;
+  drep:dataOwnerRepPoints "2"^^xsd:integer
+.
+
+:a1 a prov:Activity;
+  prov:used :e3, :e4, :p1
+.
+
+:p1 a prov:Plan;
+  dcat:distribution [
+    dcat:downloadURL <http://github.com/nicholascar/fake-code>
+  ]
+.
