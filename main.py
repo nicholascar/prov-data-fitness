@@ -81,7 +81,7 @@ if __name__ == '__main__':
     print assess_min_drep_points('eg1.ttl', 3)
     # False: not all the dataset's ancestor datasets' attributed Agents have drep:dataOwnerRepPoints > 6
     print 'eg1 Ancestor\'s Agents dataOwnerRepPoints > 6: ',
-    print assess_min_drep_points('eg2.ttl', 6)
+    print assess_min_drep_points('eg1.ttl', 6)
     print
     # URL of method code returned
     print 'eg1 dataset\'s method code: ',
