@@ -12,5 +12,7 @@ File *eg1.ttl* contains RDF data in the turtle format, compliant with the [PROV 
 
 File *eg2.ttl* contains data as per the image *eg2.png*. All tests run against *eg2.ttl* fail or return no result.
 
+File *eg3-forward.ttl* contains data as per the image *eg3-forward.png*. This example data is presented to inform 
+discussion about 'forward provenance' fitness methodologies but no code implementations are given.
 
 Nicholas Car <nicholas.car@ga.gov.au>
