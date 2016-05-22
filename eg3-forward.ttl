@@ -1,0 +1,67 @@
+#
+# Test data eg3-forward: for 'forward provenance' methods
+#
+
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix drep: <http://promsns.org/ns/drep#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix eg: <http://example.org/def/data-dist-type#>.
+@prefix : <http://example.org/provenance/one#>.
+
+:e1 a prov:Entity;
+  dct:title "Dataset 1"@en
+.
+
+:e2 a prov:Entity;
+  dct:title "Dataset 2"@en;
+  prov:wasDerivedFrom :e1;
+  prov:wasAttributedTo :agj
+.
+
+:e3 a prov:Entity;
+  dct:title "Dataset 3"@en;
+  prov:wasDerivedFrom :e1;
+  eg:inRepo :eg-repo
+.
+
+:e4 a prov:Entity;
+  dct:title "Journal Paper A"@en;
+  prov:wasDerivedFrom :e1;
+  eg:inJournal :eg-journal
+.
+
+
+:e5 a prov:Entity;
+  dct:title "Dataset 5"@en;
+  prov:wasDerivedFrom :e1;
+  prov:wasGeneratedBy :a1
+.
+
+:agj a prov:Person;
+  foaf:name "Agent J"@en;
+  drep:dataOwnerRepPoints "10"^^xsd:integer
+.
+
+:eg-repo a eg:Repository;
+  rdfs:label "Example Repository"@en
+.
+
+:eg-journal a eg:Journal;
+  rdfs:label "Example Journal"@en;
+  eg:impactFactor "4.3"^^xsd:decimal
+.
+
+:a1 a prov:Activity;
+  prov:used :e1, :p1
+.
+
+:p1 a prov:Plan;
+  dcat:distribution [
+    dct:title "Code X"@en;
+	dcat:downloadURL <http://github.com/nicholascar/code-x>
+  ]
+.
